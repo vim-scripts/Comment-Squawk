@@ -54,7 +54,14 @@ function CheckComments()
         " If the current line is a function.
         if line_list[idx] =~ "^.*\\s*function.*(.*).*$"
             " If we should omit the function.
-            if (len(filter(omits, 'line_list[idx] =~ "^.*\\s*function\\s*" . v:val  . "\\s*(.*).*$"')) > 0)
+            let omit = 0 
+            for omitidx in range(0, len(omits)-1) 
+                if line_list[idx] =~ "^\\s*.*function\\s*" . omits[omitidx] . "\\s*(.*).*$" 
+                    let omit = 1 
+                    break 
+                endif 
+            endfor 
+            if (omit)
                 continue
             endif
 

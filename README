@@ -1,0 +1,7 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=3422
+
+Comment squawk ensures that every PHP file you edit has good function comments.
+
+On write, comment squawk identifies any functions that require comments and prompts the user to add comments.
+
+The omits[] list has common functions which are omitted from the check.  Change the omits list to omit common functions from the check.
